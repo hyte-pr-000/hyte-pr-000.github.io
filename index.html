@@ -3,10 +3,52 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>引っ越しやることリスト</title>
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+  <header class="app-header">
+    <h1>🚚 引っ越しやることリスト</h1>
+    <div class="progress-wrap">
+      <div class="progress-bar">
+        <div id="progressFill" class="progress-fill"></div>
+      </div>
+      <p id="progressText" class="progress-text">0 / 0 完了</p>
+    </div>
+    <button id="resetBtn" class="reset-btn" type="button">初期状態にリセット</button>
+  </header>
+
+  <main id="categories" class="categories"></main>
+
+  <template id="categoryTemplate">
+    <section class="category">
+      <button class="category-header" type="button">
+        <span class="category-title"></span>
+        <span class="category-count"></span>
+        <span class="chevron">▾</span>
+      </button>
+      <div class="category-body">
+        <ul class="item-list"></ul>
+        <form class="add-item-form">
+          <input type="text" class="add-item-input" placeholder="項目を追加" maxlength="60">
+          <button type="submit" class="add-item-btn">追加</button>
+        </form>
+      </div>
+    </section>
+  </template>
+
+  <template id="itemTemplate">
+    <li class="item">
+      <label class="item-label">
+        <input type="checkbox" class="item-checkbox">
+        <span class="item-text"></span>
+      </label>
+      <button class="item-delete" type="button" aria-label="削除">✕</button>
+    </li>
+  </template>
+
+  <p class="footer-note">入力内容はこの端末（ブラウザ）に保存されます。</p>
+
   <script src="js/main.js"></script>
 </body>
 </html>
